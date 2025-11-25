@@ -38,6 +38,15 @@ def pick(paragraphs, select, k):
     """
     # BEGIN PROBLEM 1
     "*** YOUR CODE HERE ***"
+    new = []
+    for i in paragraphs:
+        if select(i):
+            new.append(i) 
+    if len(new) <= k:
+        return ''
+    else:
+        print('DEBUG',len(new))
+        return new[k]
     # END PROBLEM 1
 
 
@@ -58,6 +67,15 @@ def about(subject):
 
     # BEGIN PROBLEM 2
     "*** YOUR CODE HERE ***"
+    def assert_if(ls):
+        print('DEBUG',ls.split(' '))
+        for j in subject:
+            for i in remove_punctuation(ls).split(' '):
+                if j == lower(i):
+                    return True
+               
+        return False
+    return assert_if
     # END PROBLEM 2
 
 
@@ -88,6 +106,16 @@ def accuracy(typed, source):
     source_words = split(source)
     # BEGIN PROBLEM 3
     "*** YOUR CODE HERE ***"
+    count = 0
+    if len(typed_words) == 0:
+       if len(source_words) == 0:
+           return 100.0
+       else:
+           return 0.0
+    for i in range(min(len(typed_words),len(source_words))):
+        if typed_words[i] == source_words[i]:
+            count += 1
+    return count / len(typed_words)*100 
     # END PROBLEM 3
 
 
@@ -106,6 +134,7 @@ def wpm(typed, elapsed):
     assert elapsed > 0, "Elapsed time must be positive"
     # BEGIN PROBLEM 4
     "*** YOUR CODE HERE ***"
+    return len(typed)/5/elapsed*60
     # END PROBLEM 4
 
 
