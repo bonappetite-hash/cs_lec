@@ -57,11 +57,13 @@ def planet(mass):
     """Construct a planet of some mass."""
     assert mass > 0
     "*** YOUR CODE HERE ***"
+    return ['planet', mass]
 
 def mass(p):
     """Select the mass of a planet."""
     assert is_planet(p), 'must call mass on a planet'
     "*** YOUR CODE HERE ***"
+    return p[1]
 
 def is_planet(p):
     """Whether p is a planet."""
@@ -114,9 +116,26 @@ def balanced(m):
     True
     """
     "*** YOUR CODE HERE ***"
-
+    left_len = length(left(m)) 
+    l_end = end(left(m))
+    right_len = length(right(m))
+    r_end = end(right(m))
+    
+    is_balanced = left_len * total_mass(l_end) == right_len * total_mass(r_end)
+    
+    if is_mobile(l_end):
+        l_balanced = balanced(l_end)
+    else:
+        l_balanced = True
+    
+    if is_mobile(r_end):
+        r_balanced = balanced(r_end)
+    else:
+        r_balanced = True
+    return is_balanced and l_balanced and r_balanced
 
 def berry_finder(t):
+    
     """Returns True if t contains a node with the value 'berry' and 
     False otherwise.
 
@@ -134,9 +153,16 @@ def berry_finder(t):
     True
     """
     "*** YOUR CODE HERE ***"
+    if label(t) == 'berry':
+        return True
+    for branch in branches(t):
+        if berry_finder(branch):
+            return True
+    else:
+        return False
 
 
-HW_SOURCE_FILE=__file__
+    HW_SOURCE_FILE=__file__
 
 
 def max_path_sum(t):
@@ -149,7 +175,10 @@ def max_path_sum(t):
     17
     """
     "*** YOUR CODE HERE ***"
-
+    if is_leaf(t):
+        return label(t)
+    highest_sum = max(max_path_sum(branch) for branch in branches(t))
+    return label(t) + highest_sum      
 
 def mobile(left, right):
     """Construct a mobile from a left arm and a right arm."""
