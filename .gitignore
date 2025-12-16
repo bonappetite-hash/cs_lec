@@ -1,0 +1,35 @@
+#some file that I don't want to track
+#ignore the .a files
+*.a
+
+# .swp
+*.swp
+*.swo
+
+#  pycache/
+__pycache__/
+
+# py[c-compiled , o-optimized , d-dynamic]
+*.py[cod]
+ 
+#.ok_[  ]
+*.ok_[cdhs]*
+
+#.ipynb
+*.ipynb*
+
+# tests flies
+**/tests/
+
+# .ok ok
+*.ok 
+ok
+
+# construct_check*
+construct_check*
+
+# unwanted.txt
+unwanted.txt 
+
+#lab05 tree
+**/tree.py
