@@ -8,6 +8,7 @@
 
 #  pycache/
 __pycache__/
+__pycache__
 
 # py[c-compiled , o-optimized , d-dynamic]
 *.py[cod]
@@ -33,3 +34,6 @@ unwanted.txt
 
 #lab05 tree
 **/tree.py
+
+#.codex
+.codex
