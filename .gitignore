@@ -37,3 +37,11 @@ unwanted.txt
 
 #.codex
 .codex
+
+#scheme editor
+editor/
+
+#scheme
+scheme
+
+
