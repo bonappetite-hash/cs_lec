@@ -41,7 +41,8 @@ unwanted.txt
 #scheme editor
 editor/
 
-#scheme
-scheme
+#some scheme files
+cs61a/hw/**/scheme
+cs61a/lab/**/scheme
 
 
